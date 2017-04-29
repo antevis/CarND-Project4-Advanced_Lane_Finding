@@ -1,4 +1,4 @@
-##Writeup
+## Writeup
 
 ---
 
@@ -34,10 +34,10 @@ The goals / steps of this project are the following:
 [video1]: ./project_video_out.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
-###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
-###Camera Calibration
+### Camera Calibration
 
 Camera calibration has been implemented in ```calibrateCam.py```. It assumes that there's a folder ```camera_cal```,
 containing calibration files ```calibration*.jpg```. Camera Calibration may be invoked directly from the Terminal as follows:
@@ -77,15 +77,15 @@ Here are the results:
 
 ![alt text][image1] ![alt text][image2]
 
-###Pipeline demo on single image
+### Pipeline demo on single image
 
-####1. Distortion correction
+#### 1. Distortion correction
 
-#####Original image:
+##### Original image:
 
 ![alt text][image3]
 
-#####Undistorted image:
+##### Undistorted image:
 
 ![alt text][image4]
 
@@ -93,7 +93,7 @@ To emphasize the difference between the original and undistorted, here are two i
 
 ![alt text][image5]
 
-####2. Getting threshold binary
+#### 2. Getting threshold binary
 
 After numerous trials, I picked the following formula to obtain a final binary thresholded image:
 
@@ -110,7 +110,7 @@ Here's an example of my output for this step:
 
 ![alt text][image6]
 
-####3. Perspective transformation
+#### 3. Perspective transformation
 
 To obtain coordinates for proper perspective transformation, both files with straight lanes have been examined:
 
@@ -172,7 +172,7 @@ and further expand the left and/or right margin accordingly. This adjustment is 
 within the ```Drawing``` class of ```imageProcessing.py``` module, lines 244-246.
 
 
-####4. Lines detection
+#### 4. Lines detection
 
 For more consistent and robust lane detection I've created a ```Line``` class which keeps track of detected lines and manages 
 subsequent detections. It contains the following properties:
@@ -245,7 +245,7 @@ This is an example of how a particular resulting image looks like:
 
 ---
 
-###Pipeline (video)
+### Pipeline (video)
 
 Line detection in a video file may be invoked directly from the Terminal as follows:
 ```python LineDetector.py```. It will prompt for relevant parameters, perform detection in each frame and save the result
@@ -275,7 +275,7 @@ Here's a [link to my video result](./project_video_out.mp4)
 
 ---
 
-###Discussion
+### Discussion
 
 I've tried to employ the convolutional approach, and there is a method ```convolutional_search``` in
 ```LaneFinding.py```, but found the result unsatisfactory.
