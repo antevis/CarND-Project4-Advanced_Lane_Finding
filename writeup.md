@@ -160,7 +160,7 @@ As a result, bird-eye projection of the same image looks like this:
 
 ![alt text][image11]
 
-Obviously this would allow to detect right line much higher precision. However, there may be situations when even such
+Obviously this would allow to detect right line with much higher precision. However, there may be situations when even such
 margin augmentation would not be sufficient to fully accommodate the line, meaning that it would still intersect y axis
 beyond the visible width of the image:
 
@@ -185,7 +185,8 @@ subsequent detections. It contains the following properties:
 (2 means that lower half of the image will be used)
 * **winCount** - number of windows to split the image height into for initial box search
 * **searchPortion** - the vertical share of the image used for searching, from the bottom up.
-with Bird-eye projection higher pixels contain less meaningful information for lane detection for obvious reasons.
+with Bird-eye projection higher pixels contain less meaningful information for lane detection for obvious reasons so this
+might be helpful
 
 The core function of the ```Line``` class is ```getFit()```. It accepts the binary bird-eye projection image and performs 
 one of two types of line searching:
@@ -194,7 +195,7 @@ one of two types of line searching:
 
 After obtaining new fit with one of the above mentioned methods, it is being added to the list of ```fits``` and a current
 fit calculated as a weighted average of all previously found fits in ```currentFit()``` function. Worth mentioning that
-standard ```numpy.average``` to obtain weighted average with weights performs really not as expected and can't be used here. 
+using standard ```numpy.average``` function to obtain weighted average performs really not as expected and can't be used here. 
 
 Thus, I've implemented weighted average myself the way it is intended to work and provide meaningful results. The weights
 themselves are calculated in ```getWeights()``` function and employ the following logic:
